@@ -1,0 +1,57 @@
+table {
+  width: 100%;
+  min-width: 700px;
+  text-align: center;
+}
+
+tr {
+  transition: 0.2s ease background;
+}
+
+th,
+td {
+  vertical-align: inherit;
+}
+
+th {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+td {
+  font-weight: 500;
+}
+
+tr.mat-header-row {
+  background: rgb(255 255 255 / 25%);
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 2px 8px 0px #0000006e;
+  position: sticky;
+  top: 2px;
+  z-index: 999;
+}
+
+tr:not(.mat-header-row):hover {
+  background: rgba(0, 0, 0, 0.161);
+}
+
+@for $i from 0 through 999 {
+  tr.mat-row:nth-child(#{$i}) {
+    animation: fadeIn alternate (#{$i * 0.05s});
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .mat-elevation-z8 {
+    overflow-x: auto;
+  }
+}
